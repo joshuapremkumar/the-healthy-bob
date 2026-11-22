@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Demo + API output
+demo_output*/
+api_output*/
+*.log
+
+# Secrets
+.env
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

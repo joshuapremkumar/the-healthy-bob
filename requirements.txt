@@ -1,0 +1,4 @@
+# Optional: only needed for api/app.py. The CLI demo uses the standard library.
+fastapi>=0.110,<1
+uvicorn[standard]>=0.27,<1
+pydantic>=2,<3

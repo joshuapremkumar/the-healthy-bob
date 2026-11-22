@@ -1,0 +1,33 @@
+[project]
+name = "the-healthy-bob"
+version = "0.1.0"
+description = "Multilingual voice-first healthcare bridge powered by IBM Bob (hackathon demo)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "joshuapremkumar" }]
+dependencies = []
+
+[project.optional-dependencies]
+api = [
+    "fastapi>=0.110,<1",
+    "uvicorn[standard]>=0.27,<1",
+    "pydantic>=2,<3",
+]
+
+[project.scripts]
+healthy-bob-demo = "bob_agent.demo:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = [
+    "audio",
+    "api",
+    "bob_agent",
+    "documents",
+    "translation",
+    "ui",
+]
