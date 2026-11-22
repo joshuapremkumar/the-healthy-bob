@@ -22,3 +22,9 @@ api_output*/
 Thumbs.db
 .idea/
 .vscode/
+
+# Node
+node_modules/
+
+# BobHealth runtime data (users, consultations, provider overrides)
+data/
