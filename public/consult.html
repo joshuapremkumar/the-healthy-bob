@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BobHealth – Consultation</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-left">
+      <a href="/dashboard.html" class="btn btn-secondary">← Dashboard</a>
+      <span class="badge" id="consult-code-badge">Code: —</span>
+    </div>
+    <div class="topbar-center" id="provider-badges">
+      <!-- STT: watson · Translate: watsonx · TTS: watson -->
+    </div>
+    <div class="topbar-right">
+      <button class="btn btn-danger" id="logout-btn">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Participants strip -->
+    <div class="card" id="participants-strip">
+      <div id="doctor-info">
+        <span class="badge badge-lang" id="doctor-badge">Doctor: —</span>
+      </div>
+      <div id="patient-info">
+        <span class="badge badge-lang" id="patient-badge">Patient: —</span>
+      </div>
+      <div id="waiting-notice" style="display:none">
+        <span id="waiting-text">Waiting for patient – share code <strong id="share-code">—</strong></span>
+      </div>
+    </div>
+
+    <!-- Message list -->
+    <div id="messages" role="log" aria-live="off" aria-label="Consultation messages"></div>
+
+    <!-- Composer -->
+    <div class="card" id="composer">
+
+      <div id="speak-selector"></div>
+      <div id="listen-selector"></div>
+
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="autoplay-checkbox" />
+          Auto-play incoming messages
+        </label>
+      </div>
+
+      <!-- Mic button + level meter -->
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+        <button class="mic-btn" id="mic-btn" title="Hold to record" aria-label="Start recording">
+          🎙
+        </button>
+        <div class="level-meter" id="level-meter">
+          <div class="level-fill" id="level-fill" style="width:0%"></div>
+        </div>
+        <span id="voice-unsupported" style="display:none;color:#c0392b;font-size:0.85rem;">
+          Voice needs Chrome or Edge – please type
+        </span>
+      </div>
+
+      <!-- Text input -->
+      <div class="form-group">
+        <textarea
+          id="text-input"
+          rows="3"
+          placeholder="Type a message… (Ctrl+Enter to send)"
+          aria-label="Message input"
+          style="width:100%;box-sizing:border-box;"
+        ></textarea>
+      </div>
+
+      <!-- Action buttons -->
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="send-btn">Send</button>
+        <button class="btn btn-secondary" id="export-btn">⬇ Export transcript</button>
+      </div>
+
+    </div><!-- /composer -->
+
+    <!-- Status bar -->
+    <div class="status-bar" id="status" aria-live="polite" aria-atomic="true"></div>
+
+  </div><!-- /container -->
+
+  <!-- Scripts per contract -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/languages.js"></script>
+  <script src="/js/speech.js"></script>
+  <script src="/js/prefs.js"></script>
+  <script src="/js/consult.js"></script>
+</body>
+</html>
